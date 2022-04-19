@@ -8,8 +8,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
-import MessageBox from '../Components/MessageBox';
-import LoadingBox from '../Components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import LoadingBox from '../components/LoadingBox';
 import { getError } from '../utils';
 import { Store } from '../Store';
 

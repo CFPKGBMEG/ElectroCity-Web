@@ -9,8 +9,8 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import { Store } from '../Store';
 import { getError } from '../utils';
-import LoadingBox from '../Components/LoadingBox';
-import MessageBox from '../Components/MessageBox';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
 
 function reducer(state, action) {
   switch (action.type) {
