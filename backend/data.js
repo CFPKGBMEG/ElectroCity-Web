@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id: '1',
       name: 'Arduino UNO',
       slug: 'Arduino UNO',
       category: 'Microcontrollers',
@@ -10,6 +11,7 @@ const data = {
       description: 'high quality shirt',
     },
     {
+      _id: '2',
       name: 'Raspberry Pi',
       slug: 'Raspberry Pi',
       category: 'Microcontrollers',
@@ -22,6 +24,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      _id: '3',
       name: 'Servo Motor',
       slug: 'Servo Motor',
       category: 'Input/Output',
@@ -34,6 +37,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      _id: '4',
       name: 'LCD Screen',
       slug: 'LCD Screen',
       category: 'Input/Output',
@@ -46,6 +50,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      _id: '5',
       name: 'Ultrasonic Sensor',
       slug: 'Ultrasonic Sensorn',
       category: 'Sensor',
@@ -58,6 +63,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      _id: '6',
       name: 'PIR Sensor',
       slug: 'PIR Sensor',
       category: 'Sensor',
@@ -70,6 +76,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      _id: '7',
       name: 'IR Sensor',
       slug: 'IR Sensor',
       category: 'Sensor',
@@ -82,6 +89,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      _id: '8',
       name: 'Membrane Keypad',
       slug: 'Membrane Keypad',
       category: 'Input/Output',
@@ -94,6 +102,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      _id: '9',
       name: '7 Segment Display',
       slug: '7 Segment Display',
       category: 'Input/Output',
@@ -106,6 +115,7 @@ const data = {
       description: 'high quality product',
     },
     {
+      _id: '10',
       name: 'RFID Module',
       slug: 'Sensor',
       category: 'Input/Output',
