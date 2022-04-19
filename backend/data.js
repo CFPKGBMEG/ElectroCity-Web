@@ -15,7 +15,7 @@ const data = {
       category: 'Microcontrollers',
       image: '/images/3.png',
       price: 150,
-      countInStock: 20,
+      countInStock: 0,
       // brand: 'Adidas',
       // rating: 4.0,
       // numReviews: 10,
