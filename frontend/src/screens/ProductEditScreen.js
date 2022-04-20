@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import { Store } from '../Store';
 import { getError } from '../utils';
@@ -18,17 +19,24 @@ const reducer = (state, action) => {
       return { ...state, loading: false };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
+    case 'UPDATE_REQUEST':
+      return { ...state, loadingUpdate: true };
+    case 'UPDATE_SUCCESS':
+      return { ...state, loadingUpdate: false };
+    case 'UPDATE_FAIL':
+      return { ...state, loadingUpdate: false };
     default:
       return state;
   }
 };
 export default function ProductEditScreen() {
+  const navigate = useNavigate();
   const params = useParams(); // /product/:id
   const { id: productId } = params;
 
   const { state } = useContext(Store);
   const { userInfo } = state;
-  const [{ loading, error }, dispatch] = useReducer(reducer, {
+  const [{ loading, error, loadingUpdate }, dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
   });
@@ -39,7 +47,6 @@ export default function ProductEditScreen() {
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
   const [countInStock, setCountInStock] = useState('');
-  const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
 
   useEffect(() => {
@@ -53,7 +60,6 @@ export default function ProductEditScreen() {
         setImage(data.image);
         setCategory(data.category);
         setCountInStock(data.countInStock);
-        setBrand(data.brand);
         setDescription(data.description);
         dispatch({ type: 'FETCH_SUCCESS' });
       } catch (err) {
@@ -65,7 +71,36 @@ export default function ProductEditScreen() {
     };
     fetchData();
   }, [productId]);
-
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      dispatch({ type: 'UPDATE_REQUEST' });
+      await axios.put(
+        `/api/products/${productId}`,
+        {
+          _id: productId,
+          name,
+          slug,
+          price,
+          image,
+          category,
+          countInStock,
+          description,
+        },
+        {
+          headers: { Authorization: `Bearer ${userInfo.token}` },
+        }
+      );
+      dispatch({
+        type: 'UPDATE_SUCCESS',
+      });
+      toast.success('Product updated successfully');
+      navigate('/admin/products');
+    } catch (err) {
+      toast.error(getError(err));
+      dispatch({ type: 'UPDATE_FAIL' });
+    }
+  };
   return (
     <Container className="small-container">
       <Helmet>
@@ -78,7 +113,7 @@ export default function ProductEditScreen() {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <Form>
+        <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="name">
             <Form.Label>Name</Form.Label>
             <Form.Control
@@ -119,14 +154,7 @@ export default function ProductEditScreen() {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="brand">
-            <Form.Label>Brand</Form.Label>
-            <Form.Control
-              value={brand}
-              onChange={(e) => setBrand(e.target.value)}
-              required
-            />
-          </Form.Group>
+
           <Form.Group className="mb-3" controlId="countInStock">
             <Form.Label>Count In Stock</Form.Label>
             <Form.Control
@@ -144,7 +172,10 @@ export default function ProductEditScreen() {
             />
           </Form.Group>
           <div className="mb-3">
-            <Button type="submit">Update</Button>
+            <Button disabled={loadingUpdate} type="submit">
+              Update
+            </Button>
+            {loadingUpdate && <LoadingBox></LoadingBox>}
           </div>
         </Form>
       )}
