@@ -84,33 +84,34 @@ function ProductScreen() {
           </Col>
           <Col md={3}>
             <ListGroup variant="flush">
-              <ListGroup.Item>
+              <ListGroup.Item className="ArduinoHeader">
                 <Helmet>
                   <title>{product.name}</title>
                 </Helmet>
                 <h1>{product.name}</h1>
               </ListGroup.Item>
-              <ListGroup.Item>Price : Php {product.price}</ListGroup.Item>
-              <ListGroup.Item>
-                Description:
-                <p>{product.description}</p>
+              <ListGroup.Item className="ArduinoPrice">
+                Php {product.price}
+              </ListGroup.Item>
+              <ListGroup.Item className="ArduinoDescription">
+                <p className="Arduino">{product.description}</p>
               </ListGroup.Item>
             </ListGroup>
           </Col>
-          <Col md={3}>
+          <Col md={3} className="ProductCheckout">
             <Card>
-              <Card.Body>
-                <ListGroup variant="flush">
-                  <ListGroup.Item>
+              <Card.Body className="ArduinoStatusBox">
+                <ListGroup className="ArduinoFlush" variant="flush">
+                  {/* <ListGroup.Item>
                     <Row>
                       <Col>Price:</Col>
                       <Col>Php {product.price}</Col>
                     </Row>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <Row>
-                      <Col>Status:</Col>
-                      <Col>
+                  </ListGroup.Item> */}
+                  <ListGroup.Item className="ArduinoStatusBox">
+                    <Row className="ArduinoStatus">
+                      <Col className="ArduinoStatusStatus">Status:</Col>
+                      <Col className="ArduinoStatusStock">
                         {product.countInStock > 0 ? (
                           <Badge bg="success">In Stock</Badge>
                         ) : (
@@ -123,9 +124,17 @@ function ProductScreen() {
                   {product.countInStock > 0 && (
                     <ListGroup.Item>
                       <div className="d-grid">
-                        <Button onClick={addToCartHandler} variant="primary">
+                        <Button
+                          onClick={addToCartHandler}
+                          variant="primary"
+                          className="AddtoCartButton"
+                        >
                           Add to Cart
                         </Button>
+
+                        {/* <Button onClick={addToCartHandler} variant="primary">
+                          Buy Now
+                        </Button> */}
                       </div>
                     </ListGroup.Item>
                   )}

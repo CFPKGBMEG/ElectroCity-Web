@@ -7,6 +7,226 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.HeaderDescription {
+  text-align: center;
+  margin-top: 7rem;
+}
+.mb-3 {
+  margin-bottom: 1rem !important;
+  margin-top: 15px;
+}
+.bg-dark {
+  --bs-bg-opacity: 1;
+  background-color: #000e11 !important;
+  height: 117px;
+  cursor: pointer;
+}
+
+img.Logo {
+  width: 15rem;
+  margin-left: -410px;
+}
+
+img.WordLogo {
+  width: 15rem;
+  margin-left: 180px;
+}
+/* [type='button']:not(:disabled),
+[type='reset']:not(:disabled),
+[type='submit']:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+  margin-left: -75px;
+} */
+button.AddtoCartButton.btn.btn-primary {
+  width: 100%;
+  background-color: #e39e50;
+  margin-top: 24rem;
+  margin-left: 8.5rem;
+}
+
+button.AddtoCartButton.btn.btn-primary:hover {
+  width: 100%;
+  background-color: #000e11;
+  margin-top: 24rem;
+  margin-left: 8.5rem;
+  transition: 0.5s;
+}
+@media (min-width: 1200px) {
+  .h1,
+  h1 {
+    font-size: 2.5rem;
+    color: #000e11;
+    margin-top: 2rem;
+  }
+}
+.alert-info {
+  background-color: #000e11;
+  border-color: transparent;
+  color: white;
+}
+button.ShopNow.btn.btn-primary {
+  background-color: #e39e50;
+  color: #000000;
+  border-color: transparent;
+  margin-top: 2rem;
+  transition: 0.5s;
+}
+
+Button.ShopNow.btn.btn-primary:hover {
+  background-color: #000e11;
+  color: white;
+  border-color: transparent;
+  margin-top: 2rem;
+}
+
+.d-grid {
+  display: grid !important;
+  background: white;
+  opacity: 1;
+  height: 0;
+}
+
+button.btn.btn-light:hover {
+  background-color: #e39e50;
+}
+.btn-light {
+  color: white;
+  background-color: #000e11;
+  border-color: #f8f9fa;
+  opacity: 0.8;
+}
+.btn-primary.disabled,
+.btn-primary:disabled {
+  color: #fff;
+  background-color: #bb0505;
+  border-color: none;
+}
+
+.btn-light.disabled,
+.btn-light:disabled {
+  color: white;
+  background-color: #000e11;
+  border-color: transparent;
+  opacity: 0.8;
+}
+
+.btn.disabled,
+.btn:disabled,
+fieldset:disabled .btn {
+  pointer-events: none;
+  opacity: 0.8;
+  border-color: transparent;
+}
+
+button.Bar.btn.btn-dark {
+  background-color: #e39e50;
+}
+
+.btn-dark {
+  color: #fff;
+  background-color: #212529;
+  border-color: #212529;
+  cursor: pointer;
+  margin-left: -75px;
+}
+.input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n + 3),
+.input-group:not(.has-validation)
+  > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background: black;
+}
+
+.input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n + 3),
+.input-group:not(.has-validation)
+  > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):hover {
+  background-color: transparent;
+}
+.input-group
+  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  background: white;
+  border-bottom-left-radius: 0;
+}
+
+.input-group
+  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback):hover {
+  background-color: white;
+  border-color: black;
+}
+.btn-outline-primary {
+  border-color: none;
+}
+
+h1.BestProducts {
+  margin-top: 40rem;
+  color: #000e11;
+}
+
+.input-group > .form-control,
+.input-group > .form-select {
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+}
+.me-auto {
+  margin-right: auto !important;
+  margin-left: -25px;
+}
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    margin-left: 150px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    margin-left: 140px;
+  }
+}
+
+a.nav-link {
+  color: green;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #e39e50;
+}
+
+i.fas {
+  color: white;
+}
+
+i.fas.fa-search {
+  color: black;
+}
+
+.btn-outline-primary {
+  border-color: transparent;
+}
+
+.btn-primary {
+  color: #fff;
+  border-color: none;
+}
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+  margin-left: 50px;
+}
 .site-container {
   min-height: 100vh;
 }
@@ -14,10 +234,53 @@ body {
 main {
   flex: 1;
 }
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #000e11;
+}
+.btn-primary:hover {
+  background-color: #000e11;
+  border-color: transparent;
+}
 .btn-primary,
 .btn-outline-primary {
-  background-color: #f0c040;
+  background-color: #e39e50;
   color: #000000;
+  border-color: transparent;
+}
+
+/* .btn-primary,
+.btn-outline-primary:hover {
+  background-color: #e39e50;
+  color: #000000;
+  border-color: transparent;
+} */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: transparent;
+  background-clip: border-box;
+  border: none;
+  border-radius: 0px;
+}
+.card-body {
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+  background: #000e11;
+}
+.card-title {
+  margin-bottom: 0.5rem;
+  color: white;
 }
 .products {
   display: flex;
@@ -46,7 +309,10 @@ main {
 }
 
 .small-container {
-  max-width: 600px;
+  max-width: 700px;
+  height: 480px;
+  margin-top: 45px;
+  margin-bottom: 45px;
 }
 
 .checkout-steps > div {
@@ -83,4 +349,176 @@ main {
 
 .text-bold {
   font-weight: bold;
+}
+
+footer {
+  background-color: #000e11;
+  color: #e39e50;
+  height: 280px;
+  margin-top: 32rem;
+  text-align: left;
+}
+
+div.ElectroCity {
+  margin-left: 7rem;
+  margin-top: 3rem;
+}
+
+div.Regulation {
+  margin-left: 64rem;
+  margin-top: -13.3rem;
+}
+
+p.Order {
+  margin-top: 25px;
+  color: white;
+}
+
+p.Warranty {
+  margin-top: -10px;
+  color: white;
+}
+
+p.Privacy {
+  margin-top: -10px;
+  color: white;
+}
+
+p.About {
+  margin-top: 25px;
+  color: white;
+}
+
+p.Team {
+  margin-top: -10px;
+  color: white;
+}
+
+p.Partnership {
+  margin-top: -10px;
+  color: white;
+}
+
+p.Contact {
+  margin-top: -10px;
+  color: white;
+}
+
+p.Follow {
+  margin-top: -10px;
+  color: white;
+}
+
+.ProductCheckout {
+  background-color: transparent;
+  height: 170px;
+  margin-left: 1px;
+  margin-top: -222px;
+}
+
+p.Arduino {
+  background-color: transparent;
+  width: 35rem;
+  text-align: justify;
+}
+
+div.ArduinoHeader.list-group-item {
+  background-color: transparent;
+  margin-left: -570px;
+  width: 545px;
+  text-align: center;
+}
+
+div.ArduinoPrice.list-group-item {
+  background-color: transparent;
+  margin-left: -570px;
+  margin-top: -1.5rem;
+  width: 545px;
+  text-align: center;
+}
+
+div.ArduinoDescription.list-group-item {
+  background-color: transparent;
+  width: 37rem;
+  font-weight: 400;
+}
+
+div.ArduinoStatusBox.list-group-item {
+  background-color: transparent;
+  margin-top: -22rem;
+  width: 34.09rem;
+  margin-left: -1.1rem;
+  justify-content: center;
+}
+
+div.ArduinoStatusBox.card-body {
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+  background: transparent;
+}
+
+div.ArduinoStatusStatus.col {
+  background-color: transparent;
+  text-align: center;
+  margin-left: 0rem;
+}
+div.ArduinoStatusStock.col {
+  background-color: transparent;
+  text-align: center;
+  margin-left: -23rem;
+}
+
+div.ArduinoStatus.row {
+  color: red;
+}
+.list-group-item {
+  border: none;
+}
+
+/* CART SCREEN */
+
+div.CartBody.align-items-center.row {
+  background-color: transparent;
+  height: 6.5rem;
+  border: 1px solid;
+}
+
+Span.ItemDetails {
+  color: white;
+}
+
+div.ItemPrice.col-md-3 {
+  color: white;
+  color: #e39e50;
+}
+
+div.SubtotalContainer.card-body {
+  background-color: transparent;
+  height: 15rem;
+}
+
+div.SubtotalDetails.list-group-item {
+  background-color: black;
+  border-radius: 5px;
+  margin-top: -1rem;
+  height: 8rem;
+}
+
+h3.Subtotal {
+  color: #ffffffd9;
+  font-weight: 500;
+}
+
+div.ButtonContainer.list-group-item {
+  background-color: transparent;
+  border-radius: 5px;
+  height: 4rem;
+}
+
+button.Proceed.btn.btn-primary {
+  background-color: #e39e50;
+  color: #000000;
+  border-color: transparent;
+  width: 13rem;
+  margin-left: 2.5rem;
 }

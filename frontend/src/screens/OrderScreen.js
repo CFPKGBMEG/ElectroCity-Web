@@ -21,6 +21,18 @@ function reducer(state, action) {
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
 
+    case 'DELIVER_REQUEST':
+      return { ...state, loadingDeliver: true };
+    case 'DELIVER_SUCCESS':
+      return { ...state, loadingDeliver: false, successDeliver: true };
+    case 'DELIVER_FAIL':
+      return { ...state, loadingDeliver: false };
+    case 'DELIVER_RESET':
+      return {
+        ...state,
+        loadingDeliver: false,
+        successDeliver: false,
+      };
     default:
       return state;
   }

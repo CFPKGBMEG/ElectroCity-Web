@@ -52,7 +52,7 @@ export default function CartScreen() {
             <ListGroup>
               {cartItems.map((item) => (
                 <ListGroup.Item key={item._id}>
-                  <Row className="align-items-center">
+                  <Row className="CartBody align-items-center">
                     <Col md={4}>
                       <img
                         src={item.image}
@@ -71,7 +71,7 @@ export default function CartScreen() {
                       >
                         <i className="fas fa-minus-circle"></i>
                       </Button>{' '}
-                      <span>{item.quantity}</span>{' '}
+                      <span className="ItemDetails">{item.quantity}</span>{' '}
                       <Button
                         variant="light"
                         onClick={() =>
@@ -82,7 +82,9 @@ export default function CartScreen() {
                         <i className="fas fa-plus-circle"></i>
                       </Button>
                     </Col>
-                    <Col md={3}>Php {item.price}</Col>
+                    <Col md={3} className="ItemPrice">
+                      Php {item.price}
+                    </Col>
                     <Col md={2}>
                       <Button
                         onClick={() => removeItemHandler(item)}
@@ -99,18 +101,19 @@ export default function CartScreen() {
         </Col>
         <Col md={4}>
           <Card>
-            <Card.Body>
+            <Card.Body className="SubtotalContainer">
               <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <h3>
+                <ListGroup.Item className="SubtotalDetails">
+                  <h3 className="Subtotal">
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
                     items) : Php
                     {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                   </h3>
                 </ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item className="ButtonContainer">
                   <div className="d-grid">
                     <Button
+                      className="Proceed"
                       type="button"
                       variant="primary"
                       onClick={checkoutHandler}

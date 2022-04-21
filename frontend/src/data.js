@@ -7,7 +7,8 @@ const data = {
       image: '/images/3.png', // 679px × 829px
       price: 100,
       countInStock: 10,
-      description: 'high quality shirt',
+      description:
+        'Arduino Uno R3 Italy Genuine This is the Arduino Uno R3 Italy. As the title suggest this is the Genuine/ Original Board made from Italy, and not a clone which are usually made in China, though it is more expensive compared to the clones, the board is more robust and will last longer compared to a clone. In addition to all the features of the previous board, the Uno now uses an ATmega16U2. This allows for faster transfer rates and more memory. No drivers needed for Linux or Mac (inf file for Windows is needed and included in the Arduino IDE), and the ability to have the Uno show up as a keyboard, mouse, joystick, etc. The Uno R3 also adds SDA and SCL pins next to the AREF. In addition, there are two new pins placed near the RESET pin. One is the IOREF that allow the shields to adapt to the voltage provided from the board. The other is a not connected and is reserved for future purposes. The Uno R3 works with all existing shields but can adapt to new shields which use these additional pins. Features: ATmega328 microcontroller Input voltage - 7-12V 14 Digital I/O Pins (6 PWM outputs) 6 Analog Inputs 32k Flash Memory 16Mhz Clock Speed Documents: Schematic Eagle Files Product Page Arduino IDE Download.',
     },
     {
       name: 'Raspberry Pi',

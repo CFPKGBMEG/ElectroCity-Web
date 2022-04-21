@@ -30,6 +30,7 @@ import DashboardScreen from './screens/DashboardScreen';
 import AdminRoute from './components/AdminRoute';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
+import OrderListScreen from './screens/OrderListScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -72,13 +73,26 @@ function App() {
           <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
               <Button
+                className="Bar"
                 variant="dark"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
-                <i className="fas fa-bars"></i>
+                <i className="fas fa-bars"></i>{' '}
               </Button>
               <LinkContainer to="/">
-                <Navbar.Brand>ElectroCity</Navbar.Brand>
+                <img
+                  src="/images/word.png"
+                  alt="ElectroCity Word Logo"
+                  className="WordLogo"
+                />
+              </LinkContainer>
+
+              <LinkContainer to="/">
+                <img
+                  src="/images/left.png"
+                  alt="ElectroCity Logo"
+                  className="Logo"
+                />
               </LinkContainer>
               {/* <Nav className="me-auto">
                 <Link to="/cart" className="nav-link">
@@ -114,8 +128,11 @@ function App() {
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
                 <Nav className="me-auto  w-100  justify-content-end">
-                  <Link to="/cart" className="nav-link">
-                    Cart
+                  <Link to="/" className="home nav-link">
+                    <i className="fas fa-home" /> Home
+                  </Link>
+                  <Link to="/cart" className="cart nav-link">
+                    <i className="fas fa-shopping-cart" /> Cart
                     {cart.cartItems.length > 0 && (
                       <Badge pill bg="danger">
                         {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
@@ -140,8 +157,9 @@ function App() {
                       </Link>
                     </NavDropdown>
                   ) : (
-                    <Link className="nav-link" to="/signin">
-                      Log In
+                    <Link className="user nav-link" to="/signin">
+                      {' '}
+                      <i className="  fas fa-user" /> Log In
                     </Link>
                   )}
 
@@ -240,6 +258,14 @@ function App() {
                 }
               ></Route>
               <Route
+                path="/admin/orders"
+                element={
+                  <AdminRoute>
+                    <OrderListScreen />
+                  </AdminRoute>
+                }
+              ></Route>
+              <Route
                 path="/admin/products"
                 element={
                   <AdminRoute>
@@ -260,7 +286,21 @@ function App() {
           </Container>
         </main>
         <footer>
-          <div className="text-center">All rights reserved</div>
+          <div className="ElectroCity">
+            <h4>ELECTROCITY</h4>
+            <p className="About">About Us</p>
+            <p className="Team">Our Team</p>
+            <p className="Partnership">Partnership</p>
+            <p className="Contact">Contact Us</p>
+            <p className="Follow">Follow us on</p>
+          </div>
+
+          <div className="Regulation">
+            <h4>REGULATION</h4>
+            <p className="Order">Order Guidelines</p>
+            <p className="Warranty">Warranty and Return Policy</p>
+            <p className="Privacy">Privacy Policy</p>
+          </div>
         </footer>
       </div>
     </BrowserRouter>

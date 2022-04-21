@@ -7,6 +7,7 @@ import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
 import MessageBox from '../components/MessageBox';
 import LoadingBox from '../components/LoadingBox';
+import Button from 'react-bootstrap/esm/Button';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -45,7 +46,14 @@ function HomeScreen() {
       <Helmet>
         <title>ElectroCity</title>
       </Helmet>
-      <h1>Best Products</h1>
+      <div className="HeaderDescription">
+        <h2>
+          Are you looking for your E-component right now? Visit ElectroCity and
+          find out the available items from the shop!
+        </h2>
+        <Button className="ShopNow">SHOP NOW!</Button>
+      </div>
+      <h1 className="BestProducts">Available Products</h1>
       <div className="products">
         {/* {products.map((product) => (
           <div className="product" key={product.slug}>
