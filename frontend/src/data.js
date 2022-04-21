@@ -44,7 +44,8 @@ const data = {
       // brand: 'Puma',
       // rating: 4.5,
       // numReviews: 10,
-      description: 'high quality product',
+      description:
+        'This 20×4 LCD display with I2C adapter board is based on the common HD44780 parallel interface chipset. The LCD display includes an I2C adapter board based on PCF8574 I2C chip, it converts I2C serial data to parallels data for the LCD display, thus, significantly reducing the number of I/O pins used on the micro-controller to send data to the LCD.',
     },
     {
       name: 'Ultrasonic Sensor',

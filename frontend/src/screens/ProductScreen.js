@@ -113,7 +113,9 @@ function ProductScreen() {
                       <Col className="ArduinoStatusStatus">Status:</Col>
                       <Col className="ArduinoStatusStock">
                         {product.countInStock > 0 ? (
-                          <Badge bg="success">In Stock</Badge>
+                          <Badge bg="success" className="InStock">
+                            In Stock
+                          </Badge>
                         ) : (
                           <Badge bg="danger">Out of Stock</Badge>
                         )}

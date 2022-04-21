@@ -69,7 +69,9 @@ export default function SigninScreen() {
         </div>
         <div className="mb-3">
           New to ElectroCity?{' '}
-          <Link to={`/signup?redirect=${redirect}`}>Sign Up</Link>
+          <Link to={`/signup?redirect=${redirect}`} className="SignInColor">
+            Sign Up
+          </Link>
         </div>
       </Form>
     </Container>

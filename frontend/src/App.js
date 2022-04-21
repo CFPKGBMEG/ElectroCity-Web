@@ -67,6 +67,7 @@ function App() {
             ? 'd-flex flex-column site-container active-cont'
             : 'd-flex flex-column site-container'
         }
+        //
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
@@ -140,7 +141,7 @@ function App() {
                     )}
                   </Link>
                   {userInfo ? (
-                    <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                    <NavDropdown title={userInfo.name} className="Dropdown">
                       <LinkContainer to="/profile">
                         <NavDropdown.Item>User Profile</NavDropdown.Item>
                       </LinkContainer>
@@ -192,16 +193,18 @@ function App() {
           }
         >
           <Nav className="flex-column text-white w-100 p-2">
-            <Nav.Item>
+            <Nav.Item className="CategoryHeader">
               <strong>Categories</strong>
             </Nav.Item>
+
             {categories.map((category) => (
-              <Nav.Item key={category}>
+              <Nav.Item className="Category" key={category}>
                 <LinkContainer
+                  className="IO"
                   to={`/search?category=${category}`}
                   onClick={() => setSidebarIsOpen(false)}
                 >
-                  <Nav.Link>{category}</Nav.Link>
+                  <Nav.Link className="IO">{category}</Nav.Link>
                 </LinkContainer>
               </Nav.Item>
             ))}

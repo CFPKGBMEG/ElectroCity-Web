@@ -59,7 +59,9 @@ export default function CartScreen() {
                         alt={item.name}
                         className="img-fluid rounded img-thumbnail"
                       ></img>{' '}
-                      <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                      <Link className="ItemName" to={`/product/${item.slug}`}>
+                        {item.name}
+                      </Link>
                     </Col>
                     <Col md={3}>
                       <Button
@@ -106,7 +108,7 @@ export default function CartScreen() {
                 <ListGroup.Item className="SubtotalDetails">
                   <h3 className="Subtotal">
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                    items) : Php
+                    items) : Php{' '}
                     {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                   </h3>
                 </ListGroup.Item>

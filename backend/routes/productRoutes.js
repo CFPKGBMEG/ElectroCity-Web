@@ -68,7 +68,7 @@ productRouter.delete(
   })
 );
 
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 4;
 productRouter.get(
   '/admin',
   isAuth,
