@@ -38,6 +38,7 @@ import ContactUsScreen from './screens/ContactUsScreen';
 import OrderPolicyScreen from './screens/OrderPolicyScreen';
 import WarrantyScreen from './screens/WarrantyScreen';
 import PrivacyPolicyScreen from './screens/PrivacyPolicyScreen';
+import UserListScreen from './screens/UserListScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -287,6 +288,14 @@ function App() {
                 element={
                   <AdminRoute>
                     <OrderListScreen />
+                  </AdminRoute>
+                }
+              ></Route>
+              <Route
+                path="/admin/users"
+                element={
+                  <AdminRoute>
+                    <UserListScreen />
                   </AdminRoute>
                 }
               ></Route>
