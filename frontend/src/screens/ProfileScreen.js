@@ -26,6 +26,7 @@ export default function ProfileScreen() {
   const { userInfo } = state;
   const [name, setName] = useState(userInfo.name);
   const [email, setEmail] = useState(userInfo.email);
+  const [occupation, setOccupation] = useState(userInfo.occupation);
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -41,6 +42,7 @@ export default function ProfileScreen() {
         {
           name,
           email,
+          occupation,
           password,
         },
         {
@@ -76,12 +78,20 @@ export default function ProfileScreen() {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="name">
+        <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
-            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="occupation">
+          <Form.Label>Place of Occupation</Form.Label>
+          <Form.Control
+            value={occupation}
+            onChange={(e) => setOccupation(e.target.value)}
             required
           />
         </Form.Group>
@@ -92,10 +102,10 @@ export default function ProfileScreen() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
+        <Form.Group className="mb-3" controlId="confirmPassword">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
-            type="password"
+            type="confirmPassword"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </Form.Group>

@@ -181,10 +181,11 @@ button.Bar.btn.btn-dark {
 }
 .input-group
   > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
-  margin-left: -1px;
+  margin-left: 10px;
   border-top-left-radius: 0;
   background: white;
   border-bottom-left-radius: 0;
+  color: #000e11;
 }
 
 .input-group
@@ -409,8 +410,8 @@ div.ElectroCity {
 }
 
 div.Regulation {
-  margin-left: 64rem;
-  margin-top: -13.3rem;
+  margin-left: 63rem;
+  margin-top: -8.3rem;
 }
 
 p.Order {
@@ -732,4 +733,74 @@ a.SignUpColor:hover {
   transition: 0.5s;
 }
 
-/* MESSAGE BOX */
+/* ABOUT US SCREEN */
+
+a.AboutUsHeader {
+  color: white;
+  display: block;
+}
+
+/*TEAM SCREEN */
+a.TeamHeader {
+  color: white;
+  display: block;
+}
+
+/*PARTNERSHIP SCREEN*/
+
+a.PartnershipHeader {
+  color: white;
+  display: block;
+}
+
+p.Disclaimer {
+  color: #bb0505;
+}
+
+/*CONTACT US SCREEN */
+a.ContactHeader {
+  color: white;
+  display: block;
+}
+
+a.ContactUs:visited {
+  color: #000e11;
+  text-decoration: none;
+}
+
+a.ContactUs:hover {
+  color: #e39e50;
+  text-decoration: underline;
+}
+
+/*ORDER POLICY SCREEN */
+
+a.OrderHeader {
+  color: white;
+  display: block;
+}
+
+/*WARRANTY SCREEN */
+
+a.WarrantyHeader {
+  color: white;
+  display: block;
+}
+
+/* PRIVACY POLICY SCREEN */
+
+a.PrivacyHeader {
+  color: white;
+  display: block;
+}
+
+/* SignUp Check Box*/
+label.input-group-text {
+  background-color: #e39e50;
+  margin-left: -50px;
+}
+
+/*Shipping Details*/
+strong.Shipping {
+  color: white;
+}

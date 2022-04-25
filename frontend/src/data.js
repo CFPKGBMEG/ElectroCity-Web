@@ -15,7 +15,7 @@ const data = {
       slug: 'Raspberry Pi',
       category: 'Microcontrollers',
       image: '/images/3.png',
-      price: 150,
+      price: 10,
       countInStock: 20,
       // brand: 'Adidas',
       // rating: 4.0,

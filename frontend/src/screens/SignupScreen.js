@@ -17,6 +17,7 @@ export default function SignupScreen() {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [occupation, setOccupation] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -68,6 +69,29 @@ export default function SignupScreen() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">
+              Occupation
+            </label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">Student</option>
+            <option value="2">Instructor</option>
+            <option value="3">Computer Hobbyist</option>
+          </select>
+        </div>
+
+        <Form.Group className="mb-3" controlId="occupation">
+          <Form.Label>Place of Occupation</Form.Label>
+          <Form.Control
+            onChange={(e) => setOccupation(e.target.value)}
+            required
+          />
+        </Form.Group>
+
         <Form.Group className="mb-3" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
@@ -78,7 +102,7 @@ export default function SignupScreen() {
           <Form.Group className="mb-3" controlId="confirmPassword">
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
-              type="password"
+              type="confirmPassword"
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />

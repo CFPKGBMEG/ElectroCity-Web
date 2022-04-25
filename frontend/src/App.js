@@ -31,6 +31,13 @@ import AdminRoute from './components/AdminRoute';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
+import AboutusScreen from './screens/AboutusScreen';
+import TeamScreen from './screens/TeamScreen';
+import PartnershipScreen from './screens/PartnershipScreen';
+import ContactUsScreen from './screens/ContactUsScreen';
+import OrderPolicyScreen from './screens/OrderPolicyScreen';
+import WarrantyScreen from './screens/WarrantyScreen';
+import PrivacyPolicyScreen from './screens/PrivacyPolicyScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -67,7 +74,6 @@ function App() {
             ? 'd-flex flex-column site-container active-cont'
             : 'd-flex flex-column site-container'
         }
-        //
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
@@ -185,7 +191,7 @@ function App() {
             </Container>
           </Navbar>
         </header>
-        <div
+        {/* <div
           className={
             sidebarIsOpen
               ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
@@ -209,10 +215,26 @@ function App() {
               </Nav.Item>
             ))}
           </Nav>
-        </div>
+        </div> */}
         <main>
           <Container className="mt-3">
             <Routes>
+              <Route path="/AboutusScreen" element={<AboutusScreen />} />
+              <Route path="/TeamScreen" element={<TeamScreen />} />
+              <Route
+                path="/PartnershipScreen"
+                element={<PartnershipScreen />}
+              />
+              <Route path="/ContactUsScreen" element={<ContactUsScreen />} />
+              <Route
+                path="/OrderPolicyScreen"
+                element={<OrderPolicyScreen />}
+              />
+              <Route path="/WarrantyScreen" element={<WarrantyScreen />} />
+              <Route
+                path="/PrivacyPolicyScreen"
+                element={<PrivacyPolicyScreen />}
+              />
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="cart" element={<CartScreen />} />
               <Route path="/search" element={<SearchScreen />} />
@@ -291,18 +313,34 @@ function App() {
         <footer>
           <div className="ElectroCity">
             <h4>ELECTROCITY</h4>
-            <p className="About">About Us</p>
-            <p className="Team">Our Team</p>
-            <p className="Partnership">Partnership</p>
-            <p className="Contact">Contact Us</p>
-            <p className="Follow">Follow us on</p>
+            <Link to="/AboutusScreen" className="AboutUsHeader">
+              {' '}
+              About Us{' '}
+            </Link>
+            <Link to="/TeamScreen" className="TeamHeader">
+              {' '}
+              Our Team{' '}
+            </Link>
+            <Link to="/PartnershipScreen" className="PartnershipHeader">
+              Partnership
+            </Link>
+            <Link to="/ContactUsScreen" className="ContactHeader">
+              Contact Us
+            </Link>
+            {/* <p className="Follow">Follow us on</p> */}
           </div>
 
           <div className="Regulation">
             <h4>REGULATION</h4>
-            <p className="Order">Order Guidelines</p>
-            <p className="Warranty">Warranty and Return Policy</p>
-            <p className="Privacy">Privacy Policy</p>
+            <Link to="/OrderPolicyScreen" className="OrderHeader">
+              Order Guidelines
+            </Link>
+            <Link to="/WarrantyScreen" className="WarrantyHeader">
+              Warranty and Return Policy
+            </Link>
+            <Link to="/PrivacyPolicyScreen" className="PrivacyHeader">
+              Privacy Policy
+            </Link>
           </div>
         </footer>
       </div>

@@ -42,7 +42,8 @@ const data = {
       image: '/images/3.png', // 679px × 829px
       price: 100,
       countInStock: 10,
-      description: 'high quality shirt',
+      description:
+        'Arduino Uno R3 Italy Genuine This is the Arduino Uno R3 Italy. As the title suggest this is the Genuine/ Original Board made from Italy, and not a clone which are usually made in China, though it is more expensive compared to the clones, the board is more robust and will last longer compared to a clone. In addition to all the features of the previous board, the Uno now uses an ATmega16U2. This allows for faster transfer rates and more memory. No drivers needed for Linux or Mac (inf file for Windows is needed and included in the Arduino IDE), and the ability to have the Uno show up as a keyboard, mouse, joystick, etc. The Uno R3 also adds SDA and SCL pins next to the AREF. In addition, there are two new pins placed near the RESET pin. One is the IOREF that allow the shields to adapt to the voltage provided from the board. The other is a not connected and is reserved for future purposes. The Uno R3 works with all existing shields but can adapt to new shields which use these additional pins. Features: ATmega328 microcontroller Input voltage - 7-12V 14 Digital I/O Pins (6 PWM outputs) 6 Analog Inputs 32k Flash Memory 16Mhz Clock Speed Documents: Schematic Eagle Files Product Page Arduino IDE Download.',
     },
     {
       //_id: '2',
@@ -50,12 +51,12 @@ const data = {
       slug: 'Raspberry Pi',
       category: 'Microcontrollers',
       image: '/images/3.png',
-      price: 150,
+      price: 10,
       countInStock: 0,
       // brand: 'Adidas',
       // rating: 4.0,
       // numReviews: 10,
-      description: 'high quality product',
+      description: 'eyow pows',
     },
     {
       //_id: '3',
@@ -68,7 +69,8 @@ const data = {
       // brand: 'Nike',
       // rating: 4.5,
       // numReviews: 14,
-      description: 'high quality product',
+      description:
+        'This tiny Digital Micro servo 9g SG92R can rotate approximately 180 degrees (90 in each direction), and works just like the standard kinds you’re used to but smaller. You can use any servo code, hardware or library to control these servos. Good for beginners who want to make stuff move without building a motor controller with feedback & gear box, especially since it will fit in small places. Of course, its not nearly as strong as the standard size. Works great with the Motor Shield for Arduino or by just wiring up with the library. Comes with a few horns and hardware. To control with an Arduino, we suggest connecting the orange control wire to pin 9 or 10 and using the Servo library included with the Arduino IDE (see here for an example sketch). Position “0” (1.5ms pulse) is middle, “90” (~2ms pulse) is all the way to the right, “-90” (~1ms pulse) is all the way to the left.',
     },
     {
       //_id: '4',
@@ -95,7 +97,8 @@ const data = {
       // brand: 'Puma',
       // rating: 4.5,
       // numReviews: 10,
-      description: 'high quality product',
+      description:
+        'This is the HC-SR04 ultrasonic distance sensor. This economical sensor provides 2cm to 400cm of non-contact measurement functionality with a ranging accuracy that can reach up to 3mm. Each HC-SR04 module includes an ultrasonic transmitter, a receiver and a control circuit. There are only four pins that you need to worry about on the HC-SR04: VCC (Power), Trig (Trigger), Echo (Receive), and GND (Ground). You will find this sensor very easy to set up and use for your next range-finding project. This sensor has additional control circuitry that can prevent inconsistent "bouncy" data depending on the application.',
     },
     {
       //_id: '6',
@@ -108,7 +111,8 @@ const data = {
       // brand: 'Puma',
       // rating: 4.5,
       // numReviews: 10,
-      description: 'high quality product',
+      description:
+        'PIR motion sensor works by constantly comparing the level of infrared radiation (IR) of the surrounding are, this allows the sensor to detect motion, these sensors are commonly used for home automation, such as automated lighting systems, and security systems. This particular PIR motion sensor module uses LHI778 Passive Infrared Sensor and BISS0001 IC to control how motion is detected. The module features adjustable sensitivity that allows for a motion detection range from 3 meters to 7 meters, and a time delay adjustments and trigger selection that allow for fine tuning within your application. This product can work on its own in conjunction with a relay module even without a microcontroller, however if you want to add more functionality than just turning on a device, you will need an Arduino.',
     },
     {
       //_id: '7',
@@ -121,7 +125,8 @@ const data = {
       // brand: 'Puma',
       // rating: 4.5,
       // numReviews: 10,
-      description: 'high quality product',
+      description:
+        'This IR Proximity Sensor is a multipurpose infrared sensor which can be used for obstacle sensing, color detection, fire detection, line sensing, etc and also as an encoder sensor. The sensor provides a digital output. The sensor outputs a logic one(+5V) at the digital output when an object is placed in front of the sensor and a logic zero(0V), when there is no object in front of the sensor. An onboard LED is used to indicate the presence of an object. This digital output can be directly connected to an Arduino, Raspberry Pi, AVR, PIC, 8051 or any other microcontroller to read the sensor output. IR sensors are highly susceptible to ambient light and the IR sensor on this sensor is suitably covered to reduce effect of ambient light on the sensor. The sensor has a maximum range of around 40-50 cm indoors and around 15-20 cm outdoors.',
     },
     {
       //_id: '8',
@@ -134,7 +139,8 @@ const data = {
       // brand: 'Puma',
       // rating: 4.5,
       // numReviews: 10,
-      description: 'high quality product',
+      description:
+        'This 4×4 Matrix Membrane Keypad provides an easy interface for embedded systems such as an Arduino. The 4×4 keypad has a total of 16 buttons in Matrix form, and it’s made of a thin, flexible membrane material with an adhesive backing (just remove the paper) so you can attach it to nearly anything.',
     },
     {
       //_id: '9',
@@ -147,12 +153,13 @@ const data = {
       // brand: 'Puma',
       // rating: 4.5,
       // numReviews: 10,
-      description: 'high quality product',
+      description:
+        'It is basic 7-segment red LED- red with one decimal point and in common cathode. A 7 segment display is made of seven different illuminating segments. These are arranged in a way to form numbers and characters by displaying different combinations of segments. The binary information is displayed using these seven segments. LED or light emitting diode is P-N junction diode which emits the energy in the form of light, differ from normal P-N junction diode which emits in the form of heat. Whereas LCD use properties of liquid crystal for displaying and do not emit the light directly. Seven segment devices are generally made up of LEDs. These LEDs will glow when they are forward biased. The intensity of the LEDs depends on forward current. So, sufficient forward current has to be provided to these LEDs to glow with full intensity. This is provided by the driver and is applied to the seven segments.',
     },
     {
       // _id: '10',
       name: 'RFID Module',
-      slug: 'Sensor',
+      slug: 'RFID Module',
       category: 'Input/Output',
       image: '/images/3.png',
       price: 65,
@@ -160,7 +167,8 @@ const data = {
       // brand: 'Puma',
       // rating: 4.5,
       // numReviews: 10,
-      description: 'high quality product',
+      description:
+        'This low cost MFRC522 based RFID Reader Module is easy to use and can be used in a wide range of applications. The MFRC522 is a highly integrated reader/writer IC for contactless communication at 13.56 MHz.',
     },
   ],
 };
