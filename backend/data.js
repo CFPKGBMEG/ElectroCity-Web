@@ -56,7 +56,8 @@ const data = {
       // brand: 'Adidas',
       // rating: 4.0,
       // numReviews: 10,
-      description: 'eyow pows',
+      description:
+        'The latest Raspberry Pi 3 Model B+ has a faster 64-bit 1.4GHz quad core processor, 1GB of RAM, faster dual-band 802.11 b/g/n/ac wireless LAN, Bluetooth 4.2, and significantly faster 300Mbit/s ethernet. 1.4GHz 64-bit quad-core ARM Cortex-A53 CPU (BCM2837), 1GB RAM (LPDDR2 SDRAM), On-board wireless LAN - dual-band 802.11 b/g/n/ac (CYW43455). On-board Bluetooth 4.2 HS low-energy (BLE) (CYW43455), 4 x USB 2.0 ports, 300Mbit/s ethernet, 40 GPIO pins.',
     },
     {
       //_id: '3',

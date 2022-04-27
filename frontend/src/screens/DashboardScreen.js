@@ -63,7 +63,7 @@ export default function DashboardScreen() {
           <Row>
             <Col md={4}>
               <Card>
-                <Card.Body>
+                <Card.Body className="UserContainer">
                   <Card.Title>
                     {summary.users && summary.users[0]
                       ? summary.users[0].numUsers
@@ -75,7 +75,7 @@ export default function DashboardScreen() {
             </Col>
             <Col md={4}>
               <Card>
-                <Card.Body>
+                <Card.Body className="OrderContainer">
                   <Card.Title>
                     {summary.orders && summary.users[0]
                       ? summary.orders[0].numOrders
@@ -87,7 +87,7 @@ export default function DashboardScreen() {
             </Col>
             <Col md={4}>
               <Card>
-                <Card.Body>
+                <Card.Body className="TotalSaleContainer">
                   <Card.Title>
                     Php{' '}
                     {summary.orders && summary.users[0]

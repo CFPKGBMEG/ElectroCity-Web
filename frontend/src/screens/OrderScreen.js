@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
-import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
+import { usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
@@ -32,6 +32,7 @@ function reducer(state, action) {
       return { ...state, loadingPay: false };
     case 'PAY_RESET':
       return { ...state, loadingPay: false, successPay: false };
+
     case 'DELIVER_REQUEST':
       return { ...state, loadingDeliver: true };
     case 'DELIVER_SUCCESS':
@@ -43,6 +44,18 @@ function reducer(state, action) {
         ...state,
         loadingDeliver: false,
         successDeliver: false,
+      };
+    case 'PAID_REQUEST':
+      return { ...state, loadingPaid: true };
+    case 'PAID_SUCCESS':
+      return { ...state, loadingPaid: false, successPaid: true };
+    case 'PAID_FAIL':
+      return { ...state, loadingPaid: false };
+    case 'PAID_RESET':
+      return {
+        ...state,
+        loadingPaid: false,
+        successPaid: false,
       };
 
     default:
@@ -66,6 +79,8 @@ export default function OrderScreen() {
       loadingPay,
       loadingDeliver,
       successDeliver,
+      loadingPaid,
+      successPaid,
     },
     dispatch,
   ] = useReducer(reducer, {
@@ -144,6 +159,9 @@ export default function OrderScreen() {
       if (successDeliver) {
         dispatch({ type: 'DELIVER_RESET' });
       }
+      if (successPaid) {
+        dispatch({ type: 'PAID_RESET' });
+      }
     } else {
       const loadPaypalScript = async () => {
         const { data: clientId } = await axios.get('/api/keys/paypal', {
@@ -168,6 +186,7 @@ export default function OrderScreen() {
     paypalDispatch,
     successPay,
     successDeliver,
+    successPaid,
   ]);
 
   async function deliverOrderHandler() {
@@ -188,6 +207,24 @@ export default function OrderScreen() {
     }
   }
 
+  async function paidOrderHandler() {
+    try {
+      dispatch({ type: 'PAID_REQUEST' });
+      const { data } = await axios.put(
+        `/api/orders/${order._id}/paid`,
+        {},
+        {
+          headers: { authorization: `Bearer ${userInfo.token}` },
+        }
+      );
+      dispatch({ type: 'PAID_SUCCESS', payload: data });
+      toast.success('Order is paid');
+    } catch (err) {
+      toast.error(getError(err));
+      dispatch({ type: 'PAID_FAIL' });
+    }
+  }
+
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (
@@ -201,17 +238,14 @@ export default function OrderScreen() {
       <Row>
         <Col md={8}>
           <Card className="mb-3">
-            <Card.Body>
+            <Card.Body className="ShippingContainer">
               <Card.Title>Shipping</Card.Title>
-              <Card.Text>
-                <strong className="Shipping">
-                  <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                  <strong>Home Address: </strong>{' '}
-                  {order.shippingAddress.address}
-                  <br />
-                  <strong>Contact Number: </strong>
-                  {order.shippingAddress.contact}
-                </strong>
+              <Card.Text className="ShippingDetails">
+                Name: {order.shippingAddress.fullName} <br />
+                Home Address: {order.shippingAddress.address}
+                <br />
+                Contact Number:
+                {order.shippingAddress.contact}
               </Card.Text>
               {order.isDelivered ? (
                 <MessageBox variant="success">
@@ -223,12 +257,11 @@ export default function OrderScreen() {
             </Card.Body>
           </Card>
           <Card className="mb-3">
-            <Card.Body>
+            <Card.Body className="PaymentContainer">
               <Card.Title>Payment</Card.Title>
-              <Card.Text>
-                <strong className="Shipping">
-                  <strong>Method:</strong> {order.paymentMethod}
-                </strong>
+              <Card.Text className="PaymentDetails">
+                {' '}
+                Method:{order.paymentMethod}
               </Card.Text>
               {order.isPaid ? (
                 <MessageBox variant="success">
@@ -241,12 +274,12 @@ export default function OrderScreen() {
           </Card>
 
           <Card className="mb-3">
-            <Card.Body>
+            <Card.Body className="ItemContainer">
               <Card.Title>Items</Card.Title>
               <ListGroup variant="flush">
                 {order.orderItems.map((item) => (
-                  <ListGroup.Item key={item._id}>
-                    <Row className="align-items-center">
+                  <ListGroup.Item key={item._id} className="PictureContainer">
+                    <Row className="ImageItemPreview align-items-center">
                       <Col md={6}>
                         <img
                           src={item.image}
@@ -255,10 +288,12 @@ export default function OrderScreen() {
                         ></img>{' '}
                         <Link to={`/product/${item.slug}`}>{item.name}</Link>
                       </Col>
-                      <Col md={3}>
+                      <Col md={3} className="ItemNumber">
                         <span>{item.quantity}</span>
                       </Col>
-                      <Col md={3}>${item.price}</Col>
+                      <Col md={3} className="ItemPrice">
+                        Php {item.price}
+                      </Col>
                     </Row>
                   </ListGroup.Item>
                 ))}
@@ -268,7 +303,7 @@ export default function OrderScreen() {
         </Col>
         <Col md={4}>
           <Card className="mb-3">
-            <Card.Body>
+            <Card.Body className="OrderSummaryContainer">
               <Card.Title>Order Summary</Card.Title>
               <ListGroup variant="flush">
                 <ListGroup.Item>
@@ -305,22 +340,39 @@ export default function OrderScreen() {
                       <LoadingBox />
                     ) : (
                       <div>
-                        <PayPalButtons
+                        <p className="ThankYou">Thank you for purchasing..</p>
+                        {/* <PayPalButtons
                           createOrder={createOrder}
                           onApprove={onApprove}
                           onError={onError}
-                        ></PayPalButtons>
+                        ></PayPalButtons> */}
                       </div>
                     )}
                     {loadingPay && <LoadingBox></LoadingBox>}
                   </ListGroup.Item>
                 )}
-                {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+
+                {userInfo.isAdmin && !order.isPaid && !order.isDelivered && (
                   <ListGroup.Item>
                     {loadingDeliver && <LoadingBox></LoadingBox>}
                     <div className="d-grid">
-                      <Button type="button" onClick={deliverOrderHandler}>
-                        Deliver Order
+                      <Button
+                        type="button"
+                        onClick={deliverOrderHandler}
+                        className="OrderDelivered"
+                      >
+                        Order Delivered
+                      </Button>
+                    </div>
+
+                    {loadingPaid && <LoadingBox></LoadingBox>}
+                    <div>
+                      <Button
+                        type="button"
+                        onClick={paidOrderHandler}
+                        className="Paid"
+                      >
+                        Paid
                       </Button>
                     </div>
                   </ListGroup.Item>

@@ -18,8 +18,7 @@ export default function SearchBox() {
       <InputGroup>
         <FormControl
           type="text"
-          name="q"
-          id="q"
+          className="SearchColor"
           onChange={(e) => setQuery(e.target.value)}
           placeholder="search products..."
           aria-label="Search Products"

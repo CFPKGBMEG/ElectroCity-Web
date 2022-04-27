@@ -44,6 +44,7 @@ export default function ProfileScreen() {
           email,
           occupation,
           password,
+          confirmPassword,
         },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -87,8 +88,22 @@ export default function ProfileScreen() {
           />
         </Form.Group>
 
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">
+              Occupation
+            </label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01" required>
+            <option selected>Choose...</option>
+            <option value="1">Student</option>
+            <option value="2">Instructor</option>
+            <option value="3">Computer Hobbyist</option>
+          </select>
+        </div>
+
         <Form.Group className="mb-3" controlId="occupation">
-          <Form.Label>Place of Occupation</Form.Label>
+          <Form.Label>Name of Company/Institution</Form.Label>
           <Form.Control
             value={occupation}
             onChange={(e) => setOccupation(e.target.value)}
@@ -105,7 +120,7 @@ export default function ProfileScreen() {
         <Form.Group className="mb-3" controlId="confirmPassword">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
-            type="confirmPassword"
+            type="Password"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </Form.Group>

@@ -33,7 +33,9 @@ export default function SignupScreen() {
       const { data } = await Axios.post('/api/users/signup', {
         name,
         email,
+        occupation,
         password,
+        confirmPassword,
       });
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
@@ -72,7 +74,7 @@ export default function SignupScreen() {
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">
+            <label class="Occupation input-group-text" for="inputGroupSelect01">
               Occupation
             </label>
           </div>
@@ -85,7 +87,7 @@ export default function SignupScreen() {
         </div>
 
         <Form.Group className="mb-3" controlId="occupation">
-          <Form.Label>Place of Occupation</Form.Label>
+          <Form.Label>Name of Company/Institution</Form.Label>
           <Form.Control
             onChange={(e) => setOccupation(e.target.value)}
             required
@@ -102,7 +104,7 @@ export default function SignupScreen() {
           <Form.Group className="mb-3" controlId="confirmPassword">
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
-              type="confirmPassword"
+              type="Password"
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />

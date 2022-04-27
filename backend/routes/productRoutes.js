@@ -21,7 +21,7 @@ productRouter.post(
       price: 0,
       category: 'sample category',
       countInStock: 0,
-      rating: 0,
+      //rating: 0,
       numReviews: 0,
       description: 'sample description',
     });
@@ -68,6 +68,42 @@ productRouter.delete(
   })
 );
 
+productRouter.post(
+  '/:id/reviews',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const productId = req.params.id;
+    const product = await Product.findById(productId);
+    if (product) {
+      if (product.reviews.find((x) => x.name === req.user.name)) {
+        return res
+          .status(400)
+          .send({ message: 'You already submitted a review' });
+      }
+
+      const review = {
+        name: req.user.name,
+        //rating: Number(req.body.rating),
+        comment: req.body.comment,
+      };
+      product.reviews.push(review);
+      product.numReviews = product.reviews.length;
+      product.rating =
+        product.reviews.reduce((a, c) => c.rating + a, 0) /
+        product.reviews.length;
+      const updatedProduct = await product.save();
+      res.status(201).send({
+        message: 'Review Created',
+        review: updatedProduct.reviews[updatedProduct.reviews.length - 1],
+        numReviews: product.numReviews,
+        //rating: product.rating,
+      });
+    } else {
+      res.status(404).send({ message: 'Product Not Found' });
+    }
+  })
+);
+
 const PAGE_SIZE = 4;
 productRouter.get(
   '/admin',
@@ -99,7 +135,7 @@ productRouter.get(
     const page = query.page || 1;
     const category = query.category || '';
     const price = query.price || '';
-    const rating = query.rating || '';
+    // const rating = query.rating || '';
     const order = query.order || '';
     const searchQuery = query.query || '';
 
@@ -113,14 +149,14 @@ productRouter.get(
           }
         : {};
     const categoryFilter = category && category !== 'all' ? { category } : {};
-    const ratingFilter =
-      rating && rating !== 'all'
-        ? {
-            rating: {
-              $gte: Number(rating),
-            },
-          }
-        : {};
+    // const ratingFilter =
+    //   rating && rating !== 'all'
+    //     ? {
+    //         rating: {
+    //           $gte: Number(rating),
+    //         },
+    //       }
+    //     : {};
     const priceFilter =
       price && price !== 'all'
         ? {
@@ -148,7 +184,7 @@ productRouter.get(
       ...queryFilter,
       ...categoryFilter,
       ...priceFilter,
-      ...ratingFilter,
+      //...ratingFilter,
     })
       .sort(sortOrder)
       .skip(pageSize * (page - 1))
@@ -158,7 +194,7 @@ productRouter.get(
       ...queryFilter,
       ...categoryFilter,
       ...priceFilter,
-      ...ratingFilter,
+      //...ratingFilter,
     });
     res.send({
       products,

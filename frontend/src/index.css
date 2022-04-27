@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button.CreateProduct.btn.btn-primary {
+  margin-top: 1rem;
+  margin-right: 61rem;
+}
 div.Dropdown.nav-item.show.dropdown {
   background-color: transparent;
 }
@@ -44,7 +48,7 @@ div.Dropdown.nav-item.show.dropdown {
 
 .HeaderDescription {
   text-align: center;
-  margin-top: 7rem;
+  margin-top: 10rem;
 }
 .mb-3 {
   margin-bottom: 1rem !important;
@@ -93,7 +97,8 @@ button.AddtoCartButton.btn.btn-primary:hover {
   h1 {
     font-size: 2.5rem;
     color: #000e11;
-    margin-top: 4rem;
+    margin-top: 3rem;
+    font-family: 'Titillium Web', sans-serif;
   }
 }
 .alert-info {
@@ -157,6 +162,7 @@ fieldset:disabled .btn {
 
 button.Bar.btn.btn-dark {
   background-color: #e39e50;
+  margin-left: 1rem;
 }
 
 .btn-dark {
@@ -171,7 +177,7 @@ button.Bar.btn.btn-dark {
   > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  background: black;
+  background: transparent;
 }
 
 .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n + 3),
@@ -238,6 +244,11 @@ a.nav-link {
 
 .navbar-dark .navbar-nav .nav-link:hover {
   color: #e39e50;
+}
+
+i.Account.fas.fa-user {
+  color: white;
+  margin-top: 11px;
 }
 
 i.fas {
@@ -396,22 +407,28 @@ div.ContainerShadow.card-body {
   font-weight: bold;
 }
 
+/* FOOTER */
 footer {
   background-color: #000e11;
   color: #e39e50;
   height: 280px;
-  margin-top: 32rem;
+  margin-top: 10rem;
   text-align: left;
 }
 
 div.ElectroCity {
-  margin-left: 7rem;
+  margin-left: 17rem;
   margin-top: 3rem;
 }
 
 div.Regulation {
-  margin-left: 63rem;
+  margin-left: 55rem;
   margin-top: -8.3rem;
+}
+
+div.Tutorials {
+  margin-left: 36rem;
+  margin-top: -107px;
 }
 
 p.Order {
@@ -541,10 +558,6 @@ Span.ItemDetails {
   color: black;
 }
 
-div.ItemPrice.col-md-3 {
-  color: black;
-}
-
 div.SubtotalContainer.card-body {
   background-color: transparent;
   height: 15rem;
@@ -597,22 +610,36 @@ p.SalesText.card-text {
 
 /* CATEGORIES */
 
+div.CategoryHeader.nav-item {
+  color: #e39e50;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+  width: 6rem;
+}
+.text-white {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+  background: #7a75754a;
+  height: 100%;
+}
 div.Category.nav-item {
-  background-color: #000e11;
+  background-color: transparent;
 }
 
 a.IO.nav-link {
-  color: white;
+  color: #000e11;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .side-navbar {
   width: 240px;
-  height: 58%;
+  height: 195.8rem;
   position: absolute;
-  background-color: #100901;
+  background-color: transparent;
   transition: 0.5s;
-  margin-top: 7rem;
-  margin-left: 88.5rem;
+  margin-top: 0rem;
 }
 
 div.Result.col-md-6 {
@@ -647,6 +674,9 @@ i.Exit.fa.fa-times-circle {
   margin-left: 0.5rem;
 }
 
+input.SearchColor.form-control {
+  color: white;
+}
 /* ACCOUNT */
 .dropdown-item {
   display: block;
@@ -733,6 +763,11 @@ a.SignUpColor:hover {
   transition: 0.5s;
 }
 
+label.Occupation.input-group-text {
+  border-radius: 7px;
+  font-weight: 600;
+}
+
 /* ABOUT US SCREEN */
 
 a.AboutUsHeader {
@@ -794,6 +829,26 @@ a.PrivacyHeader {
   display: block;
 }
 
+/*TUTORIAL */
+
+a.ArduinoUnoHeader {
+  display: block;
+  width: 15rem;
+  text-decoration: none;
+}
+
+a.ArduinoUnoHeader:hover {
+  color: white;
+}
+
+a.RaspberryPiHeader {
+  text-decoration: none;
+}
+
+a.RaspberryPiHeader:hover {
+  color: white;
+}
+
 /* SignUp Check Box*/
 label.input-group-text {
   background-color: #e39e50;
@@ -801,6 +856,137 @@ label.input-group-text {
 }
 
 /*Shipping Details*/
-strong.Shipping {
+p.ShippingDetails.card-text {
+  color: #e39e50;
+}
+
+p.PaymentDetails.card-text {
+  color: #e39e50;
+}
+
+a.EditShipping:hover {
+  color: #e39e50;
+}
+
+a.EditPayment:hover {
+  color: #e39e50;
+}
+
+a.EditItems:hover {
+  color: #e39e50;
+}
+div.ShippingContainer.card-body {
+  border-radius: 7px;
+}
+
+div.PaymentContainer.card-body {
+  border-radius: 7px;
+}
+
+div.ItemContainer.card-body {
+  border-radius: 7px;
+}
+
+div.PictureContainer.list-group-item {
+  background-color: transparent;
+}
+
+div.ItemNumber.col-md-3 {
   color: white;
+}
+
+div.ItemPrice.col-md-3 {
+  color: white;
+}
+
+div.ImageItemPreview.col-md-6 {
+  margin-left: -1rem;
+  margin-bottom: 0.5rem;
+}
+
+div.OrderSummaryContainer.card-body {
+  margin-top: 1rem;
+  height: 17rem;
+  border-radius: 7px;
+}
+
+button.PlaceOrderButton.btn.btn-primary {
+  margin-top: 2rem;
+  border-color: transparent;
+}
+
+.list-group-flush {
+  border-radius: 0;
+  border-radius: 7px;
+}
+
+div.OrderSum.row {
+  margin-top: 1rem;
+}
+
+/* DASHBOARD SCREEN */
+div.UserContainer.card-body {
+  border-radius: 7px;
+}
+
+div.OrderContainer.card-body {
+  border-radius: 7px;
+}
+
+div.TotalSaleContainer.card-body {
+  border-radius: 7px;
+}
+
+/* OUR TEAM SCREEN */
+
+img.Cris {
+  width: 15rem;
+  height: 15rem;
+}
+
+h4.fontteam {
+  font-weight: 700;
+  /* margin-left: 2rem; */
+  font-family: 'Titillium Web', sans-serif;
+}
+
+img.Ella {
+  width: 15rem;
+  height: 15rem;
+  /* margin-left: 18rem;
+  margin-top: -21.5rem; */
+}
+img.Kim {
+  width: 15rem;
+  height: 15rem;
+  /* margin-left: 36rem;
+  margin-top: -21.5rem; */
+}
+
+div.names {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  margin-left: 2.5rem;
+  margin-right: 2rem;
+}
+
+div.Pictures {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5rem;
+}
+
+/* ORDER SCREEN */
+
+p.ThankYou {
+  color: #000e11;
+  font-family: cursive;
+  font-weight: 600;
+}
+
+button.OrderDelivered.btn.btn-primary {
+  width: 12rem;
+  margin-left: 6rem;
+  font-weight: 500;
 }

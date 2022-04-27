@@ -40,6 +40,7 @@ import WarrantyScreen from './screens/WarrantyScreen';
 import PrivacyPolicyScreen from './screens/PrivacyPolicyScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
+import BasicArduinoScreen from './screens/BasicArduinoScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -148,6 +149,8 @@ function App() {
                       </Badge>
                     )}
                   </Link>
+                  {/* <i className="Account fas fa-user" /> */}
+
                   {userInfo ? (
                     <NavDropdown title={userInfo.name} className="Dropdown">
                       <LinkContainer to="/profile">
@@ -193,7 +196,7 @@ function App() {
             </Container>
           </Navbar>
         </header>
-        {/* <div
+        <div
           className={
             sidebarIsOpen
               ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
@@ -202,7 +205,7 @@ function App() {
         >
           <Nav className="flex-column text-white w-100 p-2">
             <Nav.Item className="CategoryHeader">
-              <strong>Categories</strong>
+              <strong>CATEGORIES</strong>
             </Nav.Item>
 
             {categories.map((category) => (
@@ -217,7 +220,7 @@ function App() {
               </Nav.Item>
             ))}
           </Nav>
-        </div> */}
+        </div>
         <main>
           <Container className="mt-3">
             <Routes>
@@ -236,6 +239,10 @@ function App() {
               <Route
                 path="/PrivacyPolicyScreen"
                 element={<PrivacyPolicyScreen />}
+              />
+              <Route
+                path="BasicArduinoScreen"
+                element={<BasicArduinoScreen />}
               />
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="cart" element={<CartScreen />} />
@@ -359,6 +366,16 @@ function App() {
             </Link>
             <Link to="/PrivacyPolicyScreen" className="PrivacyHeader">
               Privacy Policy
+            </Link>
+          </div>
+
+          <div className="Tutorials">
+            <h4>TUTORIALS</h4>
+            <Link to="/BasicArduinoScreen" className="ArduinoUnoHeader">
+              Basic Arduino
+            </Link>
+            <Link to="/RaspberryPi" className="RaspberryPiHeader">
+              Basic Raspberry Pi
             </Link>
           </div>
         </footer>

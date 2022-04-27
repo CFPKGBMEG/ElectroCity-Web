@@ -85,36 +85,40 @@ export default function PlaceOrderScreen() {
       <Row>
         <Col md={8}>
           <Card className="mb-3">
-            <Card.Body>
+            <Card.Body className="ShippingContainer">
               <Card.Title>Shipping</Card.Title>
-              <Card.Text>
-                <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
-                <strong>Home Address: </strong> {cart.shippingAddress.address}
+              <Card.Text className="ShippingDetails">
+                Name: {cart.shippingAddress.fullName} <br />
+                Home Address: {cart.shippingAddress.address}
                 <br />
-                <strong>Contact Number: </strong> {cart.shippingAddress.contact}
+                Contact Number: {cart.shippingAddress.contact}
               </Card.Text>
-              <Link to="/shipping">Edit</Link>
+              <Link to="/shipping" className="EditShipping">
+                Edit
+              </Link>
             </Card.Body>
           </Card>
 
           <Card className="mb-3">
-            <Card.Body>
+            <Card.Body className="PaymentContainer">
               <Card.Title>Payment</Card.Title>
-              <Card.Text>
-                <strong>Method:</strong> {cart.paymentMethod}
+              <Card.Text className="PaymentDetails">
+                Method: {cart.paymentMethod}
               </Card.Text>
-              <Link to="/payment">Edit</Link>
+              <Link to="/payment" className="EditPayment">
+                Edit
+              </Link>
             </Card.Body>
           </Card>
 
           <Card className="mb-3">
-            <Card.Body>
+            <Card.Body className="ItemContainer">
               <Card.Title>Items</Card.Title>
               <ListGroup variant="flush">
                 {cart.cartItems.map((item) => (
-                  <ListGroup.Item key={item._id}>
+                  <ListGroup.Item key={item._id} className="PictureContainer">
                     <Row className="align-items-center">
-                      <Col md={6}>
+                      <Col md={6} className="ImageItemPreview">
                         <img
                           src={item.image}
                           alt={item.name}
@@ -122,25 +126,29 @@ export default function PlaceOrderScreen() {
                         ></img>{' '}
                         <Link to={`/product/Php {item.slug}`}>{item.name}</Link>
                       </Col>
-                      <Col md={3}>
+                      <Col md={3} className="ItemNumber">
                         <span>{item.quantity}</span>
                       </Col>
-                      <Col md={3}>Php {item.price}</Col>
+                      <Col md={3} className="ItemPrice">
+                        Php {item.price}
+                      </Col>
                     </Row>
                   </ListGroup.Item>
                 ))}
               </ListGroup>
-              <Link to="/cart">Edit</Link>
+              <Link to="/cart" className="EditItems">
+                Edit
+              </Link>
             </Card.Body>
           </Card>
         </Col>
         <Col md={4}>
           <Card>
-            <Card.Body>
+            <Card.Body className="OrderSummaryContainer">
               <Card.Title>Order Summary</Card.Title>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <Row>
+                  <Row className="OrderSum">
                     <Col>Items</Col>
                     <Col>Php {cart.itemsPrice.toFixed(2)}</Col>
                   </Row>
@@ -170,6 +178,7 @@ export default function PlaceOrderScreen() {
                 <ListGroup.Item>
                   <div className="d-grid">
                     <Button
+                      className="PlaceOrderButton"
                       type="button"
                       onClick={placeOrderHandler}
                       disabled={cart.cartItems.length === 0}

@@ -51,9 +51,13 @@ function HomeScreen() {
           Are you looking for your E-component right now? Visit ElectroCity and
           find out the available items from the shop!
         </h2>
-        <Button className="ShopNow">SHOP NOW!</Button>
+        <Button className="ShopNow">
+          <a href="#products">SHOP NOW!</a>
+        </Button>
       </div>
-      <h1 className="BestProducts">Available Products</h1>
+      <h1 className="BestProducts" id="products">
+        Available Products
+      </h1>
       <div className="products">
         {/* {products.map((product) => (
           <div className="product" key={product.slug}>
