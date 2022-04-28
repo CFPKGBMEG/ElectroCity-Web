@@ -17,6 +17,7 @@ export default function SigninScreen() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordShown, setPasswordShown] = useState(false);
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
@@ -41,6 +42,10 @@ export default function SigninScreen() {
     }
   }, [navigate, redirect, userInfo]);
 
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+
   return (
     <Container className="small-container">
       <Helmet>
@@ -59,10 +64,13 @@ export default function SigninScreen() {
         <Form.Group className="mb-3" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            type="password"
+            type={passwordShown ? 'text' : 'password'}
             required
             onChange={(e) => setPassword(e.target.value)}
           />
+          <button onClick={togglePassword} className="showpassword">
+            Show Password
+          </button>
         </Form.Group>
         <div className="mb-3">
           <Button type="submit">Log In</Button>

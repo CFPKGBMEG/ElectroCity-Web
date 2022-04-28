@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+//import DropdownButton from 'react-bootstrap/DropdownButton';
+//import Dropdown from 'react-bootstrap/Dropdown';
 import { Helmet } from 'react-helmet-async';
 import { useContext, useEffect, useState } from 'react';
 import { Store } from '../Store';
@@ -20,6 +22,7 @@ export default function SignupScreen() {
   const [occupation, setOccupation] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordShown, setPasswordShown] = useState(false);
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
@@ -51,6 +54,10 @@ export default function SignupScreen() {
     }
   }, [navigate, redirect, userInfo]);
 
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+
   return (
     <Container className="small-container">
       <Helmet>
@@ -72,14 +79,14 @@ export default function SignupScreen() {
           />
         </Form.Group>
 
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="Occupation input-group-text" for="inputGroupSelect01">
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <label className="input-group-text" htmlFor="inputGroupSelect01">
               Occupation
             </label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Choose...</option>
+          <select className="custom-select" id="inputGroupSelect01" required>
+            <option defaultValue="Choose">Choose...</option>
             <option value="1">Student</option>
             <option value="2">Instructor</option>
             <option value="3">Computer Hobbyist</option>
@@ -97,17 +104,22 @@ export default function SignupScreen() {
         <Form.Group className="mb-3" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            type="password"
+            type={passwordShown ? 'text' : 'password'}
             required
             onChange={(e) => setPassword(e.target.value)}
+            minLength="6"
           />
           <Form.Group className="mb-3" controlId="confirmPassword">
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
-              type="Password"
+              type={passwordShown ? 'text' : 'password'}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              minLength="6"
               required
             />
+            <button onClick={togglePassword} className="showpassword">
+              Show Password
+            </button>
           </Form.Group>
         </Form.Group>
         <div className="mb-3">

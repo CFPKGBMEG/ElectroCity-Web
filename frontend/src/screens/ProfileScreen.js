@@ -29,6 +29,7 @@ export default function ProfileScreen() {
   const [occupation, setOccupation] = useState(userInfo.occupation);
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordShown, setPasswordShown] = useState(false);
 
   const [{ loadingUpdate }, dispatch] = useReducer(reducer, {
     loadingUpdate: false,
@@ -64,6 +65,10 @@ export default function ProfileScreen() {
     }
   };
 
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
+
   return (
     <div className="container small-container">
       <Helmet>
@@ -88,14 +93,14 @@ export default function ProfileScreen() {
           />
         </Form.Group>
 
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <label className="input-group-text" htmlFor="inputGroupSelect01">
               Occupation
             </label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01" required>
-            <option selected>Choose...</option>
+          <select className="custom-select" id="inputGroupSelect01" required>
+            <option selected="selected">Choose...</option>
             <option value="1">Student</option>
             <option value="2">Instructor</option>
             <option value="3">Computer Hobbyist</option>
@@ -113,16 +118,23 @@ export default function ProfileScreen() {
         <Form.Group className="mb-3" controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            type="password"
+            type={passwordShown ? 'text' : 'password'}
             onChange={(e) => setPassword(e.target.value)}
+            minLength="6"
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="confirmPassword">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
-            type="Password"
+            type={passwordShown ? 'text' : 'password'}
             onChange={(e) => setConfirmPassword(e.target.value)}
+            minLength="6"
+            required
           />
+          <button onClick={togglePassword} className="showpassword">
+            Show Password
+          </button>
         </Form.Group>
         <div className="mb-3">
           <Button type="submit">Update</Button>

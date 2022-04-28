@@ -51,9 +51,9 @@ function HomeScreen() {
           Are you looking for your E-component right now? Visit ElectroCity and
           find out the available items from the shop!
         </h2>
-        <Button className="ShopNow">
-          <a href="#products">SHOP NOW!</a>
-        </Button>
+        <a href="#products">
+          <Button className="ShopNow">SHOP NOW!</Button>
+        </a>
       </div>
       <h1 className="BestProducts" id="products">
         Available Products

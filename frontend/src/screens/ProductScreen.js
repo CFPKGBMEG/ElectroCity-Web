@@ -196,7 +196,7 @@ function ProductScreen() {
       </Row>
 
       <div className="my-3">
-        <h2 ref={reviewsRef}>Reviews</h2>
+        <h1 ref={reviewsRef}>Product Reviews</h1>
         <div className="mb-3">
           {product.reviews.length === 0 && (
             <MessageBox>There is no review</MessageBox>
@@ -215,7 +215,7 @@ function ProductScreen() {
         <div className="my-3">
           {userInfo ? (
             <form onSubmit={submitHandler}>
-              <h2>Write a customer review</h2>
+              <h1>Feedback</h1>
               {/* <Form.Group className="mb-3" controlId="rating">
                 <Form.Label>Rating</Form.Label>
                 <Form.Select
@@ -233,7 +233,7 @@ function ProductScreen() {
               </Form.Group> */}
               <FloatingLabel
                 controlId="floatingTextarea"
-                label="Comments"
+                label="Suggestions/Comments"
                 className="mb-3"
               >
                 <Form.Control

@@ -340,7 +340,6 @@ export default function OrderScreen() {
                       <LoadingBox />
                     ) : (
                       <div>
-                        <p className="ThankYou">Thank you for purchasing..</p>
                         {/* <PayPalButtons
                           createOrder={createOrder}
                           onApprove={onApprove}
@@ -378,6 +377,7 @@ export default function OrderScreen() {
                   </ListGroup.Item>
                 )}
               </ListGroup>
+              <p className="ThankYou">Thank you for purchasing..</p>
             </Card.Body>
           </Card>
         </Col>

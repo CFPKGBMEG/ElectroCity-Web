@@ -20,7 +20,6 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
-import Button from 'react-bootstrap/Button';
 import { getError } from './utils';
 import axios from 'axios';
 import SearchBox from './components/SearchBox';
@@ -41,6 +40,7 @@ import PrivacyPolicyScreen from './screens/PrivacyPolicyScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import BasicArduinoScreen from './screens/BasicArduinoScreen';
+import BasicRpiScreen from './screens/BasicRpiScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -71,24 +71,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div
-        className={
-          sidebarIsOpen
-            ? 'd-flex flex-column site-container active-cont'
-            : 'd-flex flex-column site-container'
-        }
-      >
+      <div className={sidebarIsOpen ? 'active-cont' : 'site-container'}>
         <ToastContainer position="bottom-center" limit={1} />
         <header>
           <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
-              <Button
+              {/* <Button
                 className="Bar"
                 variant="dark"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
                 <i className="fas fa-bars"></i>{' '}
-              </Button>
+              </Button> */}
               <LinkContainer to="/">
                 <img
                   src="/images/word.png"
@@ -196,18 +190,8 @@ function App() {
             </Container>
           </Navbar>
         </header>
-        <div
-          className={
-            sidebarIsOpen
-              ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
-              : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
-          }
-        >
-          <Nav className="flex-column text-white w-100 p-2">
-            <Nav.Item className="CategoryHeader">
-              <strong>CATEGORIES</strong>
-            </Nav.Item>
-
+        <div className={sidebarIsOpen ? 'active-nav ' : ''}>
+          <Nav className="text-white w-100 p-2">
             {categories.map((category) => (
               <Nav.Item className="Category" key={category}>
                 <LinkContainer
@@ -244,6 +228,8 @@ function App() {
                 path="BasicArduinoScreen"
                 element={<BasicArduinoScreen />}
               />
+
+              <Route path="BasicRpiScreen" element={<BasicRpiScreen />} />
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="cart" element={<CartScreen />} />
               <Route path="/search" element={<SearchScreen />} />
@@ -374,7 +360,7 @@ function App() {
             <Link to="/BasicArduinoScreen" className="ArduinoUnoHeader">
               Basic Arduino
             </Link>
-            <Link to="/RaspberryPi" className="RaspberryPiHeader">
+            <Link to="/BasicRpiScreen" className="RaspberryPiHeader">
               Basic Raspberry Pi
             </Link>
           </div>

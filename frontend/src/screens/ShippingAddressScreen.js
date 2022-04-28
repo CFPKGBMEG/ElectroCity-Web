@@ -68,11 +68,13 @@ export default function ShippingAddressScreen() {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="contact">
-            <Form.Label>Contact Number</Form.Label>
+            <Form.Label>Contact Number (09XXXXXXXXX)</Form.Label>
             <Form.Control
               value={contact}
               onChange={(e) => setContact(e.target.value)}
               required
+              type="tel"
+              pattern="[0]{1}[9]{1}[0-9]{9}"
             />
           </Form.Group>
           {/* <Form.Group className="mb-3" controlId="postalCode">

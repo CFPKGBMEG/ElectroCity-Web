@@ -1,7 +1,7 @@
-function BasicArduinoScreen() {
+function BasicRpiScreen() {
   return (
     <div>
-      <h1 className="BasicArduinoHeader">BASIC ARDUINO TUTORIALS</h1>
+      <h1 className="BasicArduinoHeader">BASIC RASPBERRY PI TUTORIALS</h1>
       <div>
         <video width="320" height="240" controls>
           <source
@@ -25,4 +25,4 @@ function BasicArduinoScreen() {
     </div>
   );
 }
-export default BasicArduinoScreen;
+export default BasicRpiScreen;
