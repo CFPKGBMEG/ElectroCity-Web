@@ -12,7 +12,7 @@ function OrderPolicyScreen() {
           add it to your online shopping cart. If you are ordering more than one
           unit, make sure to modify the quantity. If the product is out of stock
           or you cannot locate it in our store, please contact us or leave a
-          message in our suggestion page (Go to Suggestion Page).
+          message in our review box.
         </div>
       </div>
 
@@ -23,15 +23,15 @@ function OrderPolicyScreen() {
         delivery details
       </div>
       <div>
-        4. Choose mode of payment, then click “Buy now”. Mode of payment: (As of
-        now)
+        4. Choose mode of payment, then click “Place Order”. Mode of payment:
+        (As of now)
         <div>
           a. -Cash-on-delivery – we’ll contact you through the number you
           provided in the delivery details to discuss your location.
         </div>
         <div>
           b. -GCash (soon) – Our Gcash number will be provided before you click
-          “Buy now”.
+          “Place Order”.
         </div>
         <div>
           5. After placing your order, please wait for a confirmation of your

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function AboutusScreen() {
   return (
     <div>
@@ -20,9 +22,9 @@ function AboutusScreen() {
         <div>
           • Electronic components – Microcontrollers, sensors, electronic parts,
           input/output devices, modules and many more based on what you will
-          like to see in our store (Go to Suggestion page). These components are
-          initially tested to ensure you’ll get the best quality and
-          performance.
+          like to see in our store. Write suggestions in review box. . These
+          components are initially tested to ensure you’ll get the best quality
+          and performance.
         </div>
         <div>
           • Video tutorials – To assist you in getting started with your
@@ -32,7 +34,12 @@ function AboutusScreen() {
         <div>
           • Partnership – To be more directly involved with the creative
           innovators in the city, we provide partnerships, particularly to
-          schools and institutions. (Go to Partnership page to learn more).
+          schools and institutions. (Go to
+          <Link to="/PartnershipScreen" className="linkfooter">
+            {' '}
+            Partnership page
+          </Link>
+          to learn more).
         </div>
         <div className="text-justify">
           • Fast Delivery – Our shop will send your item one day after you order

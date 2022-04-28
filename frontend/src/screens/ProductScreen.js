@@ -199,7 +199,7 @@ function ProductScreen() {
         <h1 ref={reviewsRef}>Product Reviews</h1>
         <div className="mb-3">
           {product.reviews.length === 0 && (
-            <MessageBox>There is no review</MessageBox>
+            <MessageBox>There is no review yet</MessageBox>
           )}
         </div>
         <ListGroup>
@@ -255,7 +255,7 @@ function ProductScreen() {
             <MessageBox>
               Please{' '}
               <Link to={`/signin?redirect=/product/${product.slug}`}>
-                Sign In
+                Log In
               </Link>{' '}
               to write a review
             </MessageBox>

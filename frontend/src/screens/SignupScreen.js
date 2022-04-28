@@ -66,7 +66,7 @@ export default function SignupScreen() {
       <h1 className="my-3">Sign Up</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>Full name</Form.Label>
           <Form.Control onChange={(e) => setName(e.target.value)} required />
         </Form.Group>
 
@@ -128,7 +128,7 @@ export default function SignupScreen() {
         <div className="mb-3">
           Already have an account?{' '}
           <Link to={`/signin?redirect=${redirect}`} className="SignUpColor">
-            Sign-In
+            Log In
           </Link>
         </div>
       </Form>

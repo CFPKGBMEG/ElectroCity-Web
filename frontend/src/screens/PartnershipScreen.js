@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function PartnershipScreen() {
   return (
     <div>
@@ -7,9 +9,13 @@ function PartnershipScreen() {
           Electrocity wants to help students, instructors, and hobbyist who are
           having trouble finding a low-cost electrical component that can be
           delivered quickly, whether it's through online stores or physical
-          stores. Through partnerships (easy and fastest way to find
-          components), (Pricing and Discounts) Contact us for more details (Go
-          to Contact Page)
+          stores. (Note: For presentation purposes only) Through partnership
+          schools/institutions/companies can get discount coupon when
+          purchasing. Contact us for more details (Go to
+          <Link to="/ContactUsScreen" className="linkfooter">
+            Contact Page{' '}
+          </Link>
+          )
         </div>
       </div>
       <div>
