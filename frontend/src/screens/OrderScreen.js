@@ -11,8 +11,8 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import { Store } from '../Store';
 import { getError } from '../utils';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
+import LoadingBox from '../Components/LoadingBox';
+import MessageBox from '../Components/MessageBox';
 import { toast } from 'react-toastify';
 
 function reducer(state, action) {

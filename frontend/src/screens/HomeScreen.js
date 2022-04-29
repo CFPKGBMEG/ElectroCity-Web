@@ -3,10 +3,10 @@ import axios from 'axios';
 import logger from 'use-reducer-logger';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Product from '../components/Product';
+import Product from '../Components/Product';
 import { Helmet } from 'react-helmet-async';
-import MessageBox from '../components/MessageBox';
-import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../Components/MessageBox';
+import LoadingBox from '../Components/LoadingBox';
 import Button from 'react-bootstrap/esm/Button';
 
 const reducer = (state, action) => {
